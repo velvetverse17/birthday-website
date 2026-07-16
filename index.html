@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, shrink-to-fit=yes">
+  <title>Luxury Birthday ✦ Cinematic Love Experience</title>
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       GLOBAL RESET & BASE STYLES
+       ═══════════════════════════════════════════════════════════════ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-bg-deep: #0a0000;
+      --color-burgundy: #2d0a0f;
+      --color-wine: #4a1018;
+      --color-red: #8b1a2b;
+      --color-rose-gold: #b8736b;
+      --color-gold: #c99a6b;
+      --color-pink: #e8a0a8;
+      --color-soft-pink: #f5d0c5;
+      --color-cream: #ffe9e0;
+      --color-text: #fadcd9;
+      --glass-bg: rgba(20, 5, 8, 0.5);
+      --glass-border: rgba(200, 140, 120, 0.25);
+      --glow-strong: 0 0 30px rgba(200, 40, 60, 0.6);
+      --glow-soft: 0 0 60px rgba(180, 70, 80, 0.4);
+      --font-primary: 'Georgia', 'Times New Roman', 'Palatino', serif;
+      --font-secondary: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: var(--color-bg-deep);
+      font-family: var(--font-secondary);
+      overflow: hidden;
+      height: 100vh;
+      height: 100dvh;
+      width: 100vw;
+      width: 100dvw;
+      position: fixed;
+      top: 0;
+      left: 0;
+      touch-action: manipulation;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── AURORA BACKGROUND GRADIENT ── */
+    .aurora-bg {
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(140, 30, 50, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 60%, rgba(180, 100, 80, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(100, 20, 30, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 70%, rgba(200, 120, 90, 0.15) 0%, transparent 40%);
+      animation: auroraShift 20s ease-in-out infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes auroraShift {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(2%, -1%) rotate(1deg); }
+      50% { transform: translate(-1%, 2%) rotate(-1deg); }
+      75% { transform: translate(1%, 1%) rotate(0.5deg); }
+    }
+
+    /* ── REDUCED MOTION SUPPORT ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .aurora-bg { animation: none !important; }
+      .heartbeat { animation: none !important; }
+      .float-particle { animation: none !important; opacity: 0.6; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       MAIN STAGE
+       ═══════════════════════════════════════════════════════════════ */
+    .stage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-width: 480px;
+      max-height: 900px;
+      overflow: hidden;
+      background: transparent;
+      box-shadow: 0 0 100px rgba(180, 50, 70, 0.25);
+      border-radius: 0;
+      z-index: 1;
+    }
+
+    @media (min-width: 768px) {
+      .stage {
+        border-radius: 48px;
+        max-height: 860px;
+        box-shadow: 0 35px 90px rgba(0,0,0,0.85), 0 0 140px rgba(200, 40, 60, 0.35);
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SCENE SYSTEM
+       ═══════════════════════════════════════════════════════════════ */
+    .scene {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+                  transform 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+                  visibility 0.7s;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: scale(0.96);
+      will-change: opacity, transform;
+      z-index: 5;
+    }
+
+    .scene.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       GLASSMORPHISM CARD
+       ═══════════════════════════════════════════════════════════════ */
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: 40px;
+      box-shadow:
+        0 20px 50px -10px rgba(0,0,0,0.7),
+        0 0 0 1px rgba(180, 70, 80, 0.25),
+        inset 0 0 40px rgba(255, 180, 160, 0.15);
+      padding: 30px 22px;
+      max-width: 350px;
+      width: 100%;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .glass-card:hover {
+      box-shadow:
+        0 25px 60px -10px rgba(0,0,0,0.8),
+        0 0 0 1px rgba(200, 90, 90, 0.35),
+        inset 0 0 50px rgba(255, 180, 160, 0.2);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       BUTTONS
+       ═══════════════════════════════════════════════════════════════ */
+    .btn-luxury {
+      background: linear-gradient(160deg, rgba(60, 10, 16, 0.85) 0%, rgba(30, 3, 6, 0.9) 100%);
+      border: 1px solid rgba(210, 130, 115, 0.65);
+      color: var(--color-cream);
+      padding: 15px 34px;
+      border-radius: 50px;
+      font-weight: 500;
+      letter-spacing: 1.8px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 10px 30px -5px rgba(180, 40, 60, 0.5), var(--glow-soft);
+      cursor: pointer;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-luxury::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .btn-luxury:active {
+      transform: scale(0.93);
+      background: rgba(80, 20, 30, 0.9);
+      box-shadow: 0 0 50px rgba(220, 60, 80, 0.7);
+    }
+
+    .btn-luxury:focus-visible {
+      outline: 2px solid #e08090;
+      outline-offset: 3px;
+    }
+
+    .btn-luxury:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      pointer-events: none;
+      filter: grayscale(25%);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       INPUT
+       ═══════════════════════════════════════════════════════════════ */
+    input[type="text"] {
+      background: rgba(10, 0, 2, 0.7);
+      border: 1px solid rgba(200, 130, 120, 0.6);
+      border-radius: 50px;
+      padding: 15px 22px;
+      color: var(--color-cream);
+      font-size: 1.15rem;
+      text-align: center;
+      font-family: var(--font-primary);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      outline: none;
+      width: 100%;
+      max-width: 280px;
+      box-shadow: 0 0 25px rgba(180, 50, 60, 0.4);
+      -webkit-appearance: none;
+      appearance: none;
+      letter-spacing: 0.5px;
+    }
+
+    input[type="text"]:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    input::placeholder {
+      color: rgba(255, 215, 205, 0.5);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       ANIMATIONS
+       ═══════════════════════════════════════════════════════════════ */
+    .heartbeat {
+      animation: heartbeat 1.4s ease infinite;
+    }
+
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.1); }
+      40% { transform: scale(1); }
+      60% { transform: scale(1.07); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes floatParticle {
+      0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.9; }
+      50% { transform: translateY(-35px) rotate(8deg) scale(1.1); opacity: 1; }
+      100% { transform: translateY(-80px) rotate(-8deg) scale(0.4); opacity: 0; }
+    }
+
+    @keyframes floatUpFast {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-140px) scale(0.3); opacity: 0; }
+    }
+
+    @keyframes confettiFall {
+      0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { text-shadow: 0 0 30px #c44b59, 0 0 60px #a02030, 0 0 90px rgba(200,40,60,0.5); }
+      50% { text-shadow: 0 0 50px #e06070, 0 0 90px #c03040, 0 0 130px rgba(220,60,80,0.7); }
+    }
+
+    .glow-text {
+      text-shadow: 0 0 30px #c44b59, 0 0 60px #a02030, 0 0 90px rgba(200,40,60,0.5);
+      animation: glowPulse 2.5s ease-in-out infinite;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       PARTICLES CONTAINER
+       ═══════════════════════════════════════════════════════════════ */
+    .particles-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 8;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      pointer-events: none;
+      will-change: transform, opacity;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       MUSIC CONTROLS
+       ═══════════════════════════════════════════════════════════════ */
+    .music-controls {
+      position: absolute;
+      bottom: 25px;
+      right: 25px;
+      z-index: 100;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .music-btn {
+      background: rgba(20, 5, 5, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(180, 110, 105, 0.55);
+      color: #f0c0b0;
+      padding: 10px 18px;
+      border-radius: 35px;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      outline: none;
+      touch-action: manipulation;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .music-btn:focus-visible {
+      outline: 2px solid #d44c5c;
+      outline-offset: 2px;
+    }
+
+    .volume-slider {
+      width: 60px;
+      accent-color: #c06070;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    @media (max-width: 480px) {
+      .glass-card { padding: 24px 16px; border-radius: 32px; }
+      .btn-luxury { padding: 13px 26px; font-size: 0.9rem; letter-spacing: 1.2px; }
+      .scene { padding: 14px; }
+      .music-btn { padding: 8px 14px; font-size: 0.78rem; }
+      .volume-slider { width: 45px; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       MEMORY GALLERY
+       ═══════════════════════════════════════════════════════════════ */
+    .gallery-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gallery-card {
+      width: 90px;
+      height: 120px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--glass-border);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--glow-soft);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-card .placeholder-icon {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      color: var(--color-rose-gold);
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-8px) scale(1.04);
+      box-shadow: 0 25px 50px rgba(180, 50, 70, 0.5);
+    }
+
+    @media (hover: none) {
+      .gallery-card:hover {
+        transform: none;
+        box-shadow: var(--glow-soft);
+      }
+      .gallery-card:active {
+        transform: scale(0.96);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ═══════════════════════════════════════════════════════════════
+       AURORA BACKGROUND
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="aurora-bg" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       MAIN STAGE
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="stage" id="mainStage" role="main" aria-live="polite" aria-label="Luxury Birthday Experience">
+
+    <!-- PARTICLES LAYER -->
+    <div class="particles-layer" id="particlesLayer" aria-hidden="true"></div>
+
+    <!-- SCENE 1: LOADING -->
+    <div class="scene active" id="scene1" aria-label="Loading screen">
+      <div class="glass-card">
+        <div style="font-size: 3rem; margin-bottom: 18px;" aria-hidden="true">💫</div>
+        <div class="glow-text" style="font-size: 1.9rem; font-weight: 400; font-family: var(--font-primary); color: #f5d0c5;">Loading Magic...</div>
+        <div style="margin-top: 28px; width: 130px; height: 4px; background: rgba(255,255,255,0.08); border-radius: 20px; overflow: hidden;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Loading progress">
+          <div id="loadingBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #c97a6a, #f0b8a0, #e09080); box-shadow: 0 0 22px #d44c5c; transition: width 1.6s cubic-bezier(0.25, 0, 0.25, 1);"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENE 2: PASSWORD -->
+    <div class="scene" id="scene2" aria-label="Password entry">
+      <div class="glass-card">
+        <div style="font-size: 2.6rem; margin-bottom: 18px;" aria-hidden="true">🔐</div>
+        <div style="color: #e6b9af; font-size: 1.35rem; margin-bottom: 22px; letter-spacing: 1px; font-family: var(--font-primary);">Secret Key</div>
+        <input type="text" id="passwordInput" placeholder="Enter the magic phrase" autocomplete="off" inputmode="text" enterkeyhint="done" aria-label="Secret Password" aria-describedby="pwHint">
+        <span id="pwHint" style="display:none;">Enter the secret phrase to continue</span>
+        <button class="btn-luxury" id="unlockBtn" style="margin-top: 22px;" aria-label="Unlock the experience">Unlock ✦</button>
+        <div id="wrongPopup" style="margin-top: 18px; color: #ffb0b0; opacity: 0; transition: opacity 0.35s ease; min-height: 24px; font-style: italic;" aria-live="assertive">🌸 That's not quite right, sweetheart 🌸</div>
+      </div>
+    </div>
+
+    <!-- SCENE 3: HAPPY BIRTHDAY -->
+    <div class="scene" id="scene3" aria-label="Happy Birthday message">
+      <div style="position: relative; z-index: 10;">
+        <div class="heartbeat glow-text" style="font-size: clamp(2.2rem, 7vw, 3.2rem); font-family: var(--font-primary); color: #fadcd9; font-weight: 600;">Happy Birthday ❤️</div>
+      </div>
+    </div>
+
+    <!-- SCENE 4: TYPEWRITER -->
+    <div class="scene" id="scene4" aria-label="Love message typing">
+      <div class="glass-card" style="max-width: 360px;">
+        <div id="typingText" style="font-size: clamp(1.15rem, 3.5vw, 1.45rem); font-family: var(--font-primary); color: #f7ddd4; min-height: 110px; line-height: 1.7; word-wrap: break-word;" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <!-- SCENE 5: FLOATING ELEMENTS DISPLAY -->
+    <div class="scene" id="scene5" aria-label="Magical floating elements">
+      <div class="glass-card">
+        <div class="glow-text" style="font-size: clamp(1.5rem, 4.5vw, 1.9rem); font-family: var(--font-primary);">🌸 You Are Pure Magic 🌸</div>
+        <div style="color: #e3b2a5; margin-top: 18px; font-style: italic; font-size: 1.05rem;">the most beautiful soul in the universe</div>
+      </div>
+    </div>
+
+    <!-- SCENE 6: GIFT -->
+    <div class="scene" id="scene6" aria-label="Gift box">
+      <div style="font-size: clamp(3.2rem, 11vw, 5rem); cursor: pointer; transition: transform 0.35s ease; filter: drop-shadow(0 0 30px rgba(200,80,90,0.6));" id="giftBox" class="heartbeat" role="button" tabindex="0" aria-label="Open the gift">🎁</div>
+      <button class="btn-luxury" id="openGiftBtn" style="margin-top: 28px;" aria-label="Open gift button">✨ Open Gift ✨</button>
+    </div>
+
+    <!-- SCENE 7: ENVELOPE / LETTER -->
+    <div class="scene" id="scene7" aria-label="Love letter">
+      <div style="font-size: clamp(2.8rem, 9vw, 3.8rem);" aria-hidden="true">✉️</div>
+      <div id="letterContent" style="color: #f3cfc0; margin-top: 22px; font-size: clamp(0.95rem, 3vw, 1.15rem); font-family: var(--font-primary); line-height: 1.9; min-height: 90px;" aria-live="polite"></div>
+    </div>
+
+    <!-- SCENE 8: REASONS -->
+    <div class="scene" id="scene8" aria-label="Reasons I love you">
+      <div id="reasonDisplay" style="color: #fadcd9; font-size: clamp(1.2rem, 4vw, 1.5rem); font-family: var(--font-primary); font-weight: 300; transition: opacity 0.4s ease; min-height: 55px;" aria-live="polite"></div>
+    </div>
+
+    <!-- SCENE 9: MEMORY GALLERY -->
+    <div class="scene" id="scene9" aria-label="Memory gallery">
+      <div class="gallery-grid" id="galleryGrid" aria-label="Beautiful memories"></div>
+      <div style="color: #dba99a; margin-top: 18px; font-size: 1.05rem;">✨ our precious moments ✨</div>
+    </div>
+
+    <!-- SCENE 10: HEART EXPLOSION -->
+    <div class="scene" id="scene10" aria-label="Heart explosion">
+      <div style="font-size: clamp(3.2rem, 11vw, 5rem);" class="heartbeat" aria-hidden="true">💖</div>
+    </div>
+
+    <!-- SCENE 11: FINALE -->
+    <div class="scene" id="scene11" aria-label="Final love message">
+      <div class="glow-text heartbeat" style="font-size: clamp(1.6rem, 5.5vw, 2.6rem); font-family: var(--font-primary); font-weight: 600; color: #ffd9cc; padding: 0 8px; word-wrap: break-word;">
+        I Love You So Much ❤️
+      </div>
+    </div>
+
+    <!-- MUSIC CONTROLS -->
+    <div class="music-controls">
+      <button class="music-btn" id="musicToggle" aria-label="Toggle music" aria-pressed="false">▶ Play</button>
+      <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.05" value="0.5" aria-label="Volume control" title="Volume">
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       AUDIO ELEMENT (Hidden)
+       ═══════════════════════════════════════════════════════════════ -->
+  <audio id="bgMusic" loop preload="none" style="display:none;" aria-hidden="true"></audio>
+
+  <script>
+    (() => {
+      'use strict';
+
+      // ═══════════════════════════════════════════════════════════════
+      // CONFIGURATION — Edit everything here!
+      // ═══════════════════════════════════════════════════════════════
+      const CONFIG = {
+        password: 'I Love You',
+        recipientName: 'My Love',
+        senderName: 'Forever Yours',
+        birthdayMessage: [
+          "Today isn't just another birthday...",
+          "You are the most beautiful part of my life.",
+          "Every moment with you is a treasure beyond words."
+        ],
+        loveLetter: [
+          "My dearest love,",
+          "On this day the universe whispered your name",
+          "And the stars rearranged themselves just for you",
+          "Another year of your beautiful existence",
+          "Another chapter of your incredible story",
+          "I watch you and I am simply in awe",
+          "Of your grace your strength your gentle heart",
+          "You walk through life leaving trails of light",
+          "Every room you enter becomes warmer",
+          "Every soul you touch feels truly seen",
+          "I never knew love could feel like this",
+          "Like standing in golden sunlight at dawn",
+          "Like hearing the most beautiful symphony",
+          "You taught me what it means to truly care",
+          "To give without expecting anything back",
+          "To cherish every fleeting precious moment",
+          "Your laughter is my favorite melody",
+          "Your smile could heal the deepest wounds",
+          "Your presence is my safest sanctuary",
+          "I am endlessly grateful for who you are",
+          "For the way you love so fearlessly",
+          "For the dreams you hold so tenderly",
+          "Today we celebrate the gift of you",
+          "Your journey your growth your beautiful soul",
+          "May this year bring you boundless joy",
+          "May every sunrise fill you with hope",
+          "May you always know how deeply you are loved",
+          "You are not just a part of my life",
+          "You are the very best part of my heart",
+          "Happy birthday my love my everything"
+        ],
+        reasons: [
+          "Your smile lights up the darkest days ✨",
+          "The way you laugh is pure music 🎵",
+          "Your kindness touches every soul 🌸",
+          "Your strength inspires me daily 💪",
+          "Your eyes hold entire galaxies 🌌",
+          "Your voice calms every storm 🕊️",
+          "Your heart is made of gold 💛",
+          "Your embrace feels like home 🏡",
+          "Your courage moves mountains ⛰️",
+          "You make ordinary moments magical ✨",
+          "Your patience is legendary 🌿",
+          "Your creativity knows no bounds 🎨",
+          "You love deeply and truly ❤️",
+          "Your wisdom guides me 🦉",
+          "You are my safe harbor ⚓",
+          "Your presence is a gift 🎁",
+          "You make life beautiful 🌷",
+          "Your dreams inspire me 🌠",
+          "You are my favorite hello 👋",
+          "Your soul is radiant ☀️",
+          "You turn tears into hope 💧",
+          "Your spirit is unbreakable 🦋",
+          "You are my greatest adventure 🌍",
+          "You taught me what love means 💖",
+          "Your intuition is remarkable 🔮",
+          "You make growing older graceful 🌹",
+          "Your humor brightens everything 😄",
+          "You are my answered prayer 🙏",
+          "Your touch heals wounds 🤲",
+          "You are my forever valentine 💌",
+          "Your resilience is awe-inspiring 🏔️",
+          "You bring peace to chaos ☮️",
+          "You are the poetry I read 📖",
+          "Your generosity overflows 🌊",
+          "You are my constellation ⭐",
+          "You make the world softer 🌸",
+          "Your faith moves mountains ⛪",
+          "You are my serendipity 🍀",
+          "Your warmth melts winter ❄️→🌸",
+          "You are the melody I hum 🎶",
+          "Your bravery is heroic 🦸",
+          "You make silence comfortable 🤫",
+          "You are my chapter one 📚",
+          "Your loyalty is unwavering 🛡️",
+          "You are the color in my world 🎨",
+          "Your grace is effortless 🦢",
+          "You are my compass 🧭",
+          "Your passion ignites fires 🔥",
+          "You make my heart skip beats 💓",
+          "Your joy is contagious 😊",
+          "You are my lighthouse 🏮",
+          "Your tenderness is a balm 🧴",
+          "You make me want to be better 🌱",
+          "Your curiosity is charming 🧐",
+          "You are my answered dream 🌙",
+          "Your forgiveness teaches me 🕊️",
+          "You are my soul's mirror 🪞",
+          "Your playfulness is delightful 🐣",
+          "You make home anywhere 🏠",
+          "You are my answered wish 🌠",
+          "Your elegance is timeless 👑",
+          "You make life an art 🖼️",
+          "Your honesty is refreshing 💎",
+          "You are my forever sunrise 🌅",
+          "Your compassion heals 🤍",
+          "You are my favorite story 📖",
+          "Your sparkle is irreplaceable ✨",
+          "You make my world complete 🌍",
+          "Your gentleness is powerful 🕊️",
+          "You are my miracle 🌟",
+          "Your authenticity is beautiful 🦋",
+          "You are my best decision 💍",
+          "Your radiance outshines stars 🌟",
+          "You make every day special 🎉",
+          "Your empathy is profound 🌊",
+          "You are my treasure chest 💎",
+          "Your existence is a blessing 🙌",
+          "You are my anchor ⚓",
+          "Your whispers are sonnets 📝",
+          "You make loving effortless 💕",
+          "You are my answered prayer 🙏",
+          "Your magic is real 🪄",
+          "You are my infinity ♾️",
+          "Your warmth is my sunshine ☀️",
+          "You are my masterpiece 🎨",
+          "Your heartbeat is my rhythm 🥁",
+          "You are my fairy tale 🏰",
+          "Your soul is a garden 🌺",
+          "You are my forever dance 💃",
+          "Your light guides me 🔦",
+          "You are my answered why ❓",
+          "Your touch is electric ⚡",
+          "You are my calm 🌊",
+          "Your words are honey 🍯",
+          "You are my safe place 🛡️",
+          "Your laughter is medicine 💊",
+          "You are my favorite thought 💭",
+          "You, just you, are everything 🌹"
+        ],
+        imageURLs: [
+          'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="100" height="130" viewBox="0 0 100 130"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#6b1a2a"/><stop offset="100%" style="stop-color:#2d0a0f"/></linearGradient></defs><rect width="100" height="130" rx="20" fill="url(#g)"/><text x="50" y="70" font-size="45" text-anchor="middle" fill="#f0c0b0" font-family="serif">🌙</text></svg>'),
+          'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="100" height="130" viewBox="0 0 100 130"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4a1018"/><stop offset="100%" style="stop-color:#1a0505"/></linearGradient></defs><rect width="100" height="130" rx="20" fill="url(#g)"/><text x="50" y="70" font-size="45" text-anchor="middle" fill="#f0c0b0" font-family="serif">✨</text></svg>'),
+          'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="100" height="130" viewBox="0 0 100 130"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#8b1a2b"/><stop offset="100%" style="stop-color:#3d0a0f"/></linearGradient></defs><rect width="100" height="130" rx="20" fill="url(#g)"/><text x="50" y="70" font-size="45" text-anchor="middle" fill="#f0c0b0" font-family="serif">🌹</text></svg>'),
+          'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="100" height="130" viewBox="0 0 100 130"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c99a6b"/><stop offset="100%" style="stop-color:#6b1a2a"/></linearGradient></defs><rect width="100" height="130" rx="20" fill="url(#g)"/><text x="50" y="70" font-size="45" text-anchor="middle" fill="#2d0a0f" font-family="serif">💫</text></svg>')
+        ],
+        musicFile: '',
+        colors: {
+          bg: '#0a0000',
+          primary: '#c44b59',
+          secondary: '#b8736b',
+          accent: '#f5d0c5'
+        }
+      };
+
+      // ═══════════════════════════════════════════════════════════════
+      // DOM REFERENCES
+      // ═══════════════════════════════════════════════════════════════
+      const $ = (sel) => document.querySelector(sel);
+      const $$ = (sel) => document.querySelectorAll(sel);
+
+      const stage = document.getElementById('mainStage');
+      const particlesLayer = document.getElementById('particlesLayer');
+      const loadingBar = document.getElementById('loadingBar');
+      const passwordInput = document.getElementById('passwordInput');
+      const unlockBtn = document.getElementById('unlockBtn');
+      const wrongPopup = document.getElementById('wrongPopup');
+      const typingText = document.getElementById('typingText');
+      const giftBox = document.getElementById('giftBox');
+      const openGiftBtn = document.getElementById('openGiftBtn');
+      const letterContent = document.getElementById('letterContent');
+      const reasonDisplay = document.getElementById('reasonDisplay');
+      const galleryGrid = document.getElementById('galleryGrid');
+      const musicToggle = document.getElementById('musicToggle');
+      const volumeSlider = document.getElementById('volumeSlider');
+      const bgMusic = document.getElementById('bgMusic');
+
+      const sceneIds = ['scene1','scene2','scene3','scene4','scene5','scene6','scene7','scene8','scene9','scene10','scene11'];
+      const scenes = {};
+      sceneIds.forEach(id => { scenes[id] = document.getElementById(id); });
+
+      // ═══════════════════════════════════════════════════════════════
+      // STATE
+      // ═══════════════════════════════════════════════════════════════
+      let currentScene = 'scene1';
+      let musicPlaying = false;
+      let giftOpened = false;
+      let passwordUnlocked = false;
+      const activeTimers = new Set();
+      const activeIntervals = new Set();
+      let particleIntervalId = null;
+      let animFrameId = null;
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // ═══════════════════════════════════════════════════════════════
+      // UTILITY FUNCTIONS
+      // ═══════════════════════════════════════════════════════════════
+      const safeTimeout = (fn, delay) => {
+        const id = setTimeout(() => { activeTimers.delete(id); fn(); }, delay);
+        activeTimers.add(id);
+        return id;
+      };
+
+      const safeInterval = (fn, delay) => {
+        const id = setInterval(fn, delay);
+        activeIntervals.add(id);
+        return id;
+      };
+
+      const clearAllTimers = () => {
+        activeTimers.forEach(id => clearTimeout(id));
+        activeTimers.clear();
+        activeIntervals.forEach(id => clearInterval(id));
+        activeIntervals.clear();
+      };
+
+      const cancelAnimFrame = () => {
+        if (animFrameId) { cancelAnimationFrame(animFrameId); animFrameId = null; }
+      };
+
+      // ═══════════════════════════════════════════════════════════════
+      // SCENE MANAGEMENT
+      // ═══════════════════════════════════════════════════════════════
+      const switchScene = (sceneId) => {
+        if (!scenes[sceneId] || currentScene === sceneId) return;
+        Object.values(scenes).forEach(s => s?.classList.remove('active'));
+        scenes[sceneId].classList.add('active');
+        currentScene = sceneId;
+        if (sceneId === 'scene11') stopParticleInterval();
+        onSceneEnter(sceneId);
+      };
+
+      const onSceneEnter = (id) => {
+        const actions = {
+          scene3: () => {
+            if (!musicPlaying) startMusic();
+            safeTimeout(() => { if (currentScene === 'scene3') switchScene('scene4'); }, 3000);
+          },
+          scene4: () => startTyping(),
+          scene5: () => safeTimeout(() => { if (currentScene === 'scene5') switchScene('scene6'); }, 3500),
+          scene7: () => startLetter(),
+          scene8: () => startReasons(),
+          scene9: () => { buildGallery(); safeTimeout(() => { if (currentScene === 'scene9') switchScene('scene10'); }, 3000); },
+          scene10: () => safeTimeout(() => { if (currentScene === 'scene10') switchScene('scene11'); }, 2500),
+        };
+        if (actions[id]) actions[id]();
+      };
+
+      // ═══════════════════════════════════════════════════════════════
+      // TYPING ANIMATION (Scene 4)
+      // ═══════════════════════════════════════════════════════════════
+      const startTyping = () => {
+        if (!typingText) return;
+        while (typingText.firstChild) typingText.removeChild(typingText.firstChild);
+        const messages = CONFIG.birthdayMessage;
+        let msgIdx = 0, charIdx = 0, lastTime = 0;
+        const delay = prefersReducedMotion ? 8 : 50;
+
+        const type = (ts) => {
+          if (currentScene !== 'scene4') { cancelAnimFrame(); return; }
+          if (!lastTime || ts - lastTime >= delay) {
+            lastTime = ts;
+            if (msgIdx >= messages.length) {
+              cancelAnimFrame();
+              safeTimeout(() => { if (currentScene === 'scene4') switchScene('scene5'); }, 1300);
+              return;
+            }
+            if (charIdx < messages[msgIdx].length) {
+              typingText.appendChild(document.createTextNode(messages[msgIdx][charIdx]));
+              charIdx++;
+            } else {
+              msgIdx++; charIdx = 0;
+              typingText.appendChild(document.createElement('br'));
+              typingText.appendChild(document.createElement('br'));
+            }
+          }
+          if (currentScene === 'scene4') animFrameId = requestAnimationFrame(type);
+        };
+        animFrameId = requestAnimationFrame(type);
+      };
+
+      // ═══════════════════════════════════════════════════════════════
+      // LETTER ANIMATION (Scene 7)
+      // ═══════════════════════════════════════════════════════════════
+      let letterTimer = null;
+      const startLetter = () => {
+        if (!letterContent) return;
+        if (letterTimer) { clearTimeout(letterTimer); letterTimer = null; }
+        while (letterContent.firstChild) letterContent.removeChild(letterContent.firstChild);
+        const lines = CONFIG.loveLetter;
+        let i = 0;
+        const add = () => {
+          if (currentScene !== 'scene7') { letterTimer = null; return; }
+          if (i < lines.length) {
+            letterContent.appendChild(document.createTextNode(lines[i]));
+            letterContent.appendChild(document.createElement('br'));
+            i++;
+            letterTimer = safeTimeout(add, 700);
+          } else {
+            letterTimer = null;
+            safeTimeout(() => { if (currentScene === 'scene7') switchScene('scene8'); }, 1800);
+          }
+        };
+        letterTimer = safeTimeout(add, 200);
+      };
+
+      // ═══════════════════════════════════════════════════════════════
+      // REASONS (Scene 8)
+      // ═══════════════════════════════════════════════════════════════
+      let reasonTimer = null;
+      const startReasons = () => {
+        if (!reasonDisplay) return;
+        if (reasonTimer) { clearTimeout(reasonTimer); reasonTimer = null; }
+        const reasons = CONFIG.reasons;
+        let idx = 0;
+        reasonDisplay.style.opacity = '1';
+        reasonDisplay.textContent = '';
+        const show = () => {
+          if (currentScene !== 'scene8') { reasonTimer = null; return; }
+          if (idx < reasons.length) {
+            reasonDisplay.style.opacity = '0';
+            safeTimeout(() => {
+              if (currentScene === 'scene8' && reasonDisplay) {
+                reasonDisplay.textContent = (idx + 1) + '. ' + reasons[idx];
+                reasonDisplay.style.opacity = '1';
+                idx++;
+                reasonTimer = safeTimeout(show, 1000);
+              }
+            }, 180);
+          } else {
+            reasonTimer = null;
+            safeTimeout(() => { if (currentScene === 'scene8') switchScene('scene9'); }, 1000);
+          }
+        };
+        reasonTimer = safeTimeout(show, 150);
+      };
+
+      // ═══════════════════════════════════════════════════════════════
+      // GALLERY (Scene 9)
+      // ═══════════════════════════════════════════════════════════════
+      const buildGallery = () => {
+        if (!galleryGrid) return;
+        galleryGrid.innerHTML = '';
+        CONFIG.imageURLs.forEach(url => {
+          const card = document.createElement('div');
+          card.className = 'gallery-card';
+          const img = document.createElement('img');
+          img.src = url;
+          img.alt = 'Memory';
+          img.loading = 'lazy';
+          img.onerror = () => {
+            img.style.display = 'none';
+            const placeholder = document.createElement('div');
+            placeholder.className = 'placeholder-icon';
+            placeholder.textContent = '🌸';
+            card.appendChild(placeholder);
+          };
+          card.appendChild(img);
+          galleryGrid.appendChild(card);
+        });
+      };
+
+      // ═══════════════════════════════════════════════════════════════
+      // GIFT & CONFETTI (Scene 6)
+      // ═══════════════════════════════════════════════════════════════
+      const launchConfetti = () => {
+        const emojis = ['✨','💫','🌟','💖','🌹','💝','🎀','🦋','🌸','💎'];
+        for (let i = 0; i < 45; i++) {
+          safeTimeout(() => {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            p.style.cssText = `left:${Math.random()*90+5}%;top:-30px;font-size:${Math.random()*20+12}px;animation:confettiFall ${Math.random()*2+2}s linear forwards;z-index:30;`;
+            p.setAttribute('aria-hidden','true');
+            particlesLayer.appendChild(p);
+            safeTimeout(() => p.remove(), 3000);
+          }, i * 18);
+        }
+      };
+
+      const openGift = () => {
+        if (giftOpened || currentScene !== 'scene6') return;
+        giftOpened = true;
+        if (giftBox) { giftBox.style.transform = 'rotate(15deg) scale(1.3)'; safeTimeout(() => { if (giftBox) giftBox.style.transform = ''; }, 250); }
+        launchConfetti();
+        safeTimeout(() => { if (currentScene === 'scene6') switchScene('scene7'); }, 1200);
+      };
+
+      // ═══════════════════════════════════════════════════════════════
+      // PARTICLES
+      // ═══════════════════════════════════════════════════════════════
+      const spawnParticle = () => {
+        if (!particlesLayer) return;
+        const icons = ['❤️','✨','🌹','🦋','💫','🥀','💖','🌸','⭐','🕊️'];
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.textContent = icons[Math.floor(Math.random() * icons.length)];
+        p.style.cssText = `left:${Math.random()*95+2.5}%;bottom:-25px;font-size:${Math.random()*16+9}px;animation:floatParticle ${Math.random()*3+3}s ease-in forwards;opacity:0.8;`;
+        p.setAttribute('aria-hidden','true');
+        particlesLayer.appendChild(p);
+        safeTimeout(() => p.remove(), 5000);
+      };
+
+      const startParticleInterval = () => {
+        if (particleIntervalId) return;
+        particleIntervalId = safeInterval(spawnParticle, 850);
+      };
+      const stopParticleInterval = () => {
+        if (particleIntervalId) { clearInterval(particleIntervalId); activeIntervals.delete(particleIntervalId); particleIntervalId = null; }
+      };
+
+      // ═══════════════════════════════════════════════════════════════
+      // MUSIC
+      // ═══════════════════════════════════════════════════════════════
+      const startMusic = () => {
+        if (musicPlaying) return;
+        if (CONFIG.musicFile && bgMusic) {
+          bgMusic.src = CONFIG.musicFile;
+          bgMusic.volume = parseFloat(volumeSlider?.value || 0.5);
+          bgMusic.play().then(() => {
+            musicPlaying = true;
+            updateMusicUI();
+          }).catch(() => {
+            // Autoplay blocked — user must interact
+            musicPlaying = false;
+            updateMusicUI();
+          });
+        } else {
+          // No music file — still mark as "playing" for UI
+          musicPlaying = true;
+          updateMusicUI();
+        }
+      };
+
+      const stopMusic = () => {
+        if (bgMusic) { bgMusic.pause(); bgMusic.currentTime = 0; }
+        musicPlaying = false;
+        updateMusicUI();
+      };
+
+      const updateMusicUI = () => {
+        if (!musicToggle) return;
+        musicToggle.textContent = musicPlaying ? '⏸ Pause' : '▶ Play';
+        musicToggle.setAttribute('aria-pressed', String(musicPlaying));
+      };
+
+      // ═══════════════════════════════════════════════════════════════
+      // PASSWORD HANDLING
+      // ═══════════════════════════════════════════════════════════════
+      const handleUnlock = (e) => {
+        if (e) e.preventDefault();
+        if (passwordUnlocked) return;
+        const raw = passwordInput.value;
+        const normalized = raw.trim().replace(/\s+/g, ' ').toLowerCase();
+        const expected = CONFIG.password.trim().replace(/\s+/g, ' ').toLowerCase();
+        if (normalized === expected) {
+          passwordUnlocked = true;
+          wrongPopup.style.opacity = '0';
+          passwordInput.disabled = true;
+          unlockBtn.disabled = true;
+          switchScene('scene3');
+        } else {
+          wrongPopup.style.opacity = '1';
+          safeTimeout(() => { wrongPopup.style.opacity = '0'; }, 1800);
+        }
+      };
+
+      // ═══════════════════════════════════════════════════════════════
+      // EVENT LISTENERS
+      // ═══════════════════════════════════════════════════════════════
+      musicToggle?.addEventListener('click', (e) => {
+        e.preventDefault();
+        musicPlaying ? stopMusic() : startMusic();
+      });
+
+      volumeSlider?.addEventListener('input', () => {
+        if (bgMusic) bgMusic.volume = parseFloat(volumeSlider.value);
+      });
+
+      unlockBtn?.addEventListener('click', handleUnlock);
+      passwordInput?.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleUnlock(e); });
+
+      openGiftBtn?.addEventListener('click', (e) => { e.preventDefault(); openGift(); });
+      giftBox?.addEventListener('click', () => openGift());
+      giftBox?.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openGift(); } });
+
+      // ═══════════════════════════════════════════════════════════════
+      // INIT
+      // ═══════════════════════════════════════════════════════════════
+      const init = () => {
+        Object.values(scenes).forEach(s => s?.classList.remove('active'));
+        scenes.scene1?.classList.add('active');
+        currentScene = 'scene1';
+        startParticleInterval();
+        if (loadingBar) {
+          loadingBar.style.width = '0%';
+          requestAnimationFrame(() => requestAnimationFrame(() => { loadingBar.style.width = '100%'; }));
+        }
+        safeTimeout(() => { if (currentScene === 'scene1') switchScene('scene2'); }, 2200);
+        updateMusicUI();
+      };
+
+      // ═══════════════════════════════════════════════════════════════
+      // CLEANUP
+      // ═══════════════════════════════════════════════════════════════
+      const cleanup = () => {
+        clearAllTimers();
+        stopParticleInterval();
+        cancelAnimFrame();
+        if (letterTimer) clearTimeout(letterTimer);
+        if (reasonTimer) clearTimeout(reasonTimer);
+        if (bgMusic) { bgMusic.pause(); bgMusic.src = ''; }
+        if (particlesLayer) particlesLayer.innerHTML = '';
+      };
+      window.addEventListener('beforeunload', cleanup);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && musicPlaying && bgMusic && bgMusic.paused) bgMusic.play().catch(() => {});
+      });
+
+      init();
+    })();
+  </script>
+</body>
+</html>
