@@ -2,1070 +2,586 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, shrink-to-fit=yes">
-  <title>Luxury Birthday ✦ Cinematic Love Experience</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>✨ cinematic birthday · reel of love</title>
   <style>
-    /* ═══════════════════════════════════════════════════════════════
-       GLOBAL RESET & BASE STYLES
-       ═══════════════════════════════════════════════════════════════ */
-    *, *::before, *::after {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      user-select: none;
     }
-
-    :root {
-      --color-bg-deep: #0a0000;
-      --color-burgundy: #2d0a0f;
-      --color-wine: #4a1018;
-      --color-red: #8b1a2b;
-      --color-rose-gold: #b8736b;
-      --color-gold: #c99a6b;
-      --color-pink: #e8a0a8;
-      --color-soft-pink: #f5d0c5;
-      --color-cream: #ffe9e0;
-      --color-text: #fadcd9;
-      --glass-bg: rgba(20, 5, 8, 0.5);
-      --glass-border: rgba(200, 140, 120, 0.25);
-      --glow-strong: 0 0 30px rgba(200, 40, 60, 0.6);
-      --glow-soft: 0 0 60px rgba(180, 70, 80, 0.4);
-      --font-primary: 'Georgia', 'Times New Roman', 'Palatino', serif;
-      --font-secondary: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-    }
-
-    body {
-      background: var(--color-bg-deep);
-      font-family: var(--font-secondary);
+    html, body {
+      width: 100%;
+      height: 100%;
       overflow: hidden;
-      height: 100vh;
-      height: 100dvh;
-      width: 100vw;
-      width: 100dvw;
+      background: #0b0b0b;
+      font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .scene {
       position: fixed;
       top: 0;
       left: 0;
-      touch-action: manipulation;
+      width: 100vw;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* ── AURORA BACKGROUND GRADIENT ── */
-    .aurora-bg {
-      position: fixed;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background:
-        radial-gradient(ellipse at 30% 20%, rgba(140, 30, 50, 0.3) 0%, transparent 50%),
-        radial-gradient(ellipse at 70% 60%, rgba(180, 100, 80, 0.2) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 80%, rgba(100, 20, 30, 0.4) 0%, transparent 50%),
-        radial-gradient(ellipse at 20% 70%, rgba(200, 120, 90, 0.15) 0%, transparent 40%);
-      animation: auroraShift 20s ease-in-out infinite;
-      z-index: 0;
+      flex-direction: column;
+      opacity: 0;
       pointer-events: none;
-    }
-
-    @keyframes auroraShift {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      25% { transform: translate(2%, -1%) rotate(1deg); }
-      50% { transform: translate(-1%, 2%) rotate(-1deg); }
-      75% { transform: translate(1%, 1%) rotate(0.5deg); }
-    }
-
-    /* ── REDUCED MOTION SUPPORT ── */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-      .aurora-bg { animation: none !important; }
-      .heartbeat { animation: none !important; }
-      .float-particle { animation: none !important; opacity: 0.6; }
-    }
-
-    /* ═══════════════════════════════════════════════════════════════
-       MAIN STAGE
-       ═══════════════════════════════════════════════════════════════ */
-    .stage {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      max-width: 480px;
-      max-height: 900px;
-      overflow: hidden;
-      background: transparent;
-      box-shadow: 0 0 100px rgba(180, 50, 70, 0.25);
-      border-radius: 0;
+      transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1), transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+      transform: scale(0.96) translateY(8px);
+      backface-visibility: hidden;
+      will-change: transform, opacity;
+      padding: 1.5rem;
+      text-align: center;
+      color: #fff;
       z-index: 1;
     }
-
-    @media (min-width: 768px) {
-      .stage {
-        border-radius: 48px;
-        max-height: 860px;
-        box-shadow: 0 35px 90px rgba(0,0,0,0.85), 0 0 140px rgba(200, 40, 60, 0.35);
-      }
-    }
-
-    /* ═══════════════════════════════════════════════════════════════
-       SCENE SYSTEM
-       ═══════════════════════════════════════════════════════════════ */
-    .scene {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
-                  transform 0.7s cubic-bezier(0.23, 1, 0.32, 1),
-                  visibility 0.7s;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transform: scale(0.96);
-      will-change: opacity, transform;
-      z-index: 5;
-    }
-
     .scene.active {
       opacity: 1;
-      visibility: visible;
       pointer-events: auto;
-      transform: scale(1);
+      transform: scale(1) translateY(0);
+      z-index: 10;
     }
-
-    /* ═══════════════════════════════════════════════════════════════
-       GLASSMORPHISM CARD
-       ═══════════════════════════════════════════════════════════════ */
-    .glass-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid var(--glass-border);
-      border-radius: 40px;
-      box-shadow:
-        0 20px 50px -10px rgba(0,0,0,0.7),
-        0 0 0 1px rgba(180, 70, 80, 0.25),
-        inset 0 0 40px rgba(255, 180, 160, 0.15);
-      padding: 30px 22px;
-      max-width: 350px;
-      width: 100%;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .glass-card:hover {
-      box-shadow:
-        0 25px 60px -10px rgba(0,0,0,0.8),
-        0 0 0 1px rgba(200, 90, 90, 0.35),
-        inset 0 0 50px rgba(255, 180, 160, 0.2);
-    }
-
-    /* ═══════════════════════════════════════════════════════════════
-       BUTTONS
-       ═══════════════════════════════════════════════════════════════ */
-    .btn-luxury {
-      background: linear-gradient(160deg, rgba(60, 10, 16, 0.85) 0%, rgba(30, 3, 6, 0.9) 100%);
-      border: 1px solid rgba(210, 130, 115, 0.65);
-      color: var(--color-cream);
-      padding: 15px 34px;
-      border-radius: 50px;
-      font-weight: 500;
-      letter-spacing: 1.8px;
-      font-size: 1rem;
-      text-transform: uppercase;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 10px 30px -5px rgba(180, 40, 60, 0.5), var(--glow-soft);
-      cursor: pointer;
-      outline: none;
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
-      transition: all 0.35s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-luxury::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 60%);
+    .scene.exit {
       opacity: 0;
-      transition: opacity 0.35s ease;
-    }
-
-    .btn-luxury:active {
-      transform: scale(0.93);
-      background: rgba(80, 20, 30, 0.9);
-      box-shadow: 0 0 50px rgba(220, 60, 80, 0.7);
-    }
-
-    .btn-luxury:focus-visible {
-      outline: 2px solid #e08090;
-      outline-offset: 3px;
-    }
-
-    .btn-luxury:disabled {
-      opacity: 0.45;
-      cursor: not-allowed;
+      transform: scale(1.02) translateY(-20px);
       pointer-events: none;
-      filter: grayscale(25%);
+      z-index: 5;
     }
-
-    /* ═══════════════════════════════════════════════════════════════
-       INPUT
-       ═══════════════════════════════════════════════════════════════ */
-    input[type="text"] {
-      background: rgba(10, 0, 2, 0.7);
-      border: 1px solid rgba(200, 130, 120, 0.6);
-      border-radius: 50px;
-      padding: 15px 22px;
-      color: var(--color-cream);
-      font-size: 1.15rem;
+    /* ---- glassmorphism base ---- */
+    .glass {
+      backdrop-filter: blur(12px) saturate(180%);
+      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      background: rgba(20, 10, 10, 0.25);
+      border: 1px solid rgba(255, 215, 215, 0.12);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      border-radius: 48px;
+      padding: 2rem 2.8rem;
+    }
+    .btn {
+      background: rgba(220, 40, 60, 0.2);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(255, 200, 200, 0.35);
+      padding: 1rem 2.8rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 1.4rem;
+      letter-spacing: 0.03em;
+      color: #fff5f0;
+      box-shadow: 0 8px 32px rgba(200, 30, 50, 0.3);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background: rgba(180, 30, 50, 0.25);
+      margin-top: 1.8rem;
+    }
+    .btn:hover {
+      transform: scale(1.03);
+      background: rgba(220, 50, 70, 0.4);
+      border-color: rgba(255, 180, 180, 0.7);
+      box-shadow: 0 0 40px #ff335580;
+    }
+    .btn:active { transform: scale(0.96); }
+    input {
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(6px);
+      border: 1.5px solid rgba(255, 180, 180, 0.3);
+      border-radius: 60px;
+      padding: 1rem 2rem;
+      font-size: 1.3rem;
+      color: #fff5ee;
       text-align: center;
-      font-family: var(--font-primary);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      width: 280px;
+      max-width: 80%;
       outline: none;
-      width: 100%;
-      max-width: 280px;
-      box-shadow: 0 0 25px rgba(180, 50, 60, 0.4);
-      -webkit-appearance: none;
-      appearance: none;
-      letter-spacing: 0.5px;
+      transition: 0.3s;
     }
-
-    input[type="text"]:disabled {
-      opacity: 0.45;
-      cursor: not-allowed;
+    input:focus {
+      border-color: #ff6670;
+      box-shadow: 0 0 30px #ff446680;
     }
-
-    input::placeholder {
-      color: rgba(255, 215, 205, 0.5);
+    .typing-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1.2em;
+      background: #ffa5a5;
+      margin-left: 6px;
+      animation: blink 1s infinite;
     }
-
-    /* ═══════════════════════════════════════════════════════════════
-       ANIMATIONS
-       ═══════════════════════════════════════════════════════════════ */
+    @keyframes blink { 0%,100%{ opacity:1; } 50%{ opacity:0.2; } }
     .heartbeat {
-      animation: heartbeat 1.4s ease infinite;
+      animation: heartbeat 1.8s ease-in-out infinite;
     }
-
-    @keyframes heartbeat {
-      0% { transform: scale(1); }
-      25% { transform: scale(1.1); }
-      40% { transform: scale(1); }
-      60% { transform: scale(1.07); }
-      100% { transform: scale(1); }
-    }
-
-    @keyframes floatParticle {
-      0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.9; }
-      50% { transform: translateY(-35px) rotate(8deg) scale(1.1); opacity: 1; }
-      100% { transform: translateY(-80px) rotate(-8deg) scale(0.4); opacity: 0; }
-    }
-
-    @keyframes floatUpFast {
-      0% { transform: translateY(0) scale(1); opacity: 1; }
-      100% { transform: translateY(-140px) scale(0.3); opacity: 0; }
-    }
-
-    @keyframes confettiFall {
-      0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
-    }
-
-    @keyframes glowPulse {
-      0%, 100% { text-shadow: 0 0 30px #c44b59, 0 0 60px #a02030, 0 0 90px rgba(200,40,60,0.5); }
-      50% { text-shadow: 0 0 50px #e06070, 0 0 90px #c03040, 0 0 130px rgba(220,60,80,0.7); }
-    }
-
-    .glow-text {
-      text-shadow: 0 0 30px #c44b59, 0 0 60px #a02030, 0 0 90px rgba(200,40,60,0.5);
-      animation: glowPulse 2.5s ease-in-out infinite;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════
-       PARTICLES CONTAINER
-       ═══════════════════════════════════════════════════════════════ */
-    .particles-layer {
+    @keyframes heartbeat { 0%,100%{ transform: scale(1); } 15%{ transform: scale(1.08); } 30%{ transform: scale(1); } 45%{ transform: scale(1.06); } 60%{ transform: scale(1); } }
+    .float-particle {
       position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff, #ff6680);
+      opacity: 0.3;
+      pointer-events: none;
+      filter: blur(2px);
+    }
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #fffbe6;
+      box-shadow: 0 0 20px #ffb0b0, 0 0 60px #ff4466;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .confetti-piece {
+      position: absolute;
+      width: 10px;
+      height: 20px;
+      border-radius: 4px;
+      opacity: 0.9;
+    }
+    /* letter */
+    .letter-paper {
+      background: #fbf3e8;
+      color: #1e0e0a;
+      padding: 2.2rem 2.8rem;
+      border-radius: 24px 8px 24px 8px;
+      max-width: 560px;
+      width: 90%;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 0 1px #f5d9c4 inset;
+      transform: rotate(-0.5deg);
+      font-family: 'Georgia', serif;
+      line-height: 1.6;
+      font-size: 1.2rem;
+      text-align: left;
+    }
+    .letter-paper p { margin: 0.8rem 0; }
+    /* gift */
+    .gift-box {
+      width: 180px;
+      height: 200px;
+      background: linear-gradient(145deg, #b31b2b, #7a0f1a);
+      border-radius: 24px 24px 12px 12px;
+      box-shadow: 0 20px 60px #aa2233aa, 0 0 80px #ff335580;
+      position: relative;
+      transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transform-origin: bottom;
+      cursor: pointer;
+    }
+    .gift-box.shake {
+      animation: shake 0.5s ease-in-out 3;
+    }
+    @keyframes shake {
+      0%,100% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(6deg) scale(1.02); }
+      75% { transform: rotate(-6deg) scale(1.02); }
+    }
+    .gift-lid {
+      width: 200px;
+      height: 40px;
+      background: linear-gradient(145deg, #d42a3e, #9e1325);
+      border-radius: 20px 20px 0 0;
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      box-shadow: 0 -10px 30px #ff4466;
+      transition: 0.5s cubic-bezier(0.34, 1.5, 0.64, 1);
+      transform-origin: bottom;
+    }
+    .gift-box.open .gift-lid {
+      transform: translateY(-90px) rotate(12deg);
+      opacity: 0.6;
+    }
+    .gift-box.open {
+      transform: scale(0.9) rotate(2deg);
+      box-shadow: 0 0 120px #ff5570;
+    }
+    .glow-ring {
+      position: absolute;
+      inset: -20px;
+      border-radius: 40px;
+      background: radial-gradient(circle, #ff4470aa, transparent 70%);
+      filter: blur(30px);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    /* scene backgrounds */
+    #scene1 { background: #0b0b0b; }
+    #scene2 { background: radial-gradient(circle at 30% 20%, #2a0a0a, #0d0101); }
+    #scene3 { background: radial-gradient(circle at 70% 30%, #2d0505, #0a0000); }
+    #scene4 { background: #1a0808; }
+    #scene5 { background: #120303; }
+    #scene6 { background: #0d0202; }
+    #scene7 { background: radial-gradient(circle at 50% 40%, #3b0a12, #0a0000); }
+    .big-heart {
+      font-size: 10rem;
+      filter: drop-shadow(0 0 60px #ff2255);
+      animation: heartbeat 1.8s ease-in-out infinite;
+    }
+    .letter-line {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .letter-line.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .password-box {
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(12px);
+      padding: 2.5rem 2rem;
+      border-radius: 60px;
+      border: 1px solid #ff4466aa;
+      box-shadow: 0 0 80px #ff335530;
+    }
+    .lock-icon {
+      font-size: 3.4rem;
+      filter: drop-shadow(0 0 30px #ff4466);
+    }
+    .final-text {
+      font-size: clamp(2.6rem, 12vw, 5.5rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      background: linear-gradient(135deg, #ffe3e0, #ffa5a5, #ff7080);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 60px #ff3355aa;
+      animation: glowPulse 3s infinite alternate;
+    }
+    @keyframes glowPulse { 0%{ filter: drop-shadow(0 0 20px #ff3355); } 100%{ filter: drop-shadow(0 0 80px #ff6680); } }
+    .sub-glow {
+      color: #ffe5e0;
+      text-shadow: 0 0 40px #ff4466;
+    }
+    .particle-canvas {
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 8;
-      overflow: hidden;
-    }
-
-    .particle {
-      position: absolute;
-      pointer-events: none;
-      will-change: transform, opacity;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════
-       MUSIC CONTROLS
-       ═══════════════════════════════════════════════════════════════ */
-    .music-controls {
-      position: absolute;
-      bottom: 25px;
-      right: 25px;
-      z-index: 100;
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .music-btn {
-      background: rgba(20, 5, 5, 0.7);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(180, 110, 105, 0.55);
-      color: #f0c0b0;
-      padding: 10px 18px;
-      border-radius: 35px;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      cursor: pointer;
-      outline: none;
-      touch-action: manipulation;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-    }
-
-    .music-btn:focus-visible {
-      outline: 2px solid #d44c5c;
-      outline-offset: 2px;
-    }
-
-    .volume-slider {
-      width: 60px;
-      accent-color: #c06070;
-      cursor: pointer;
-      background: transparent;
-    }
-
-    @media (max-width: 480px) {
-      .glass-card { padding: 24px 16px; border-radius: 32px; }
-      .btn-luxury { padding: 13px 26px; font-size: 0.9rem; letter-spacing: 1.2px; }
-      .scene { padding: 14px; }
-      .music-btn { padding: 8px 14px; font-size: 0.78rem; }
-      .volume-slider { width: 45px; }
-    }
-
-    /* ═══════════════════════════════════════════════════════════════
-       MEMORY GALLERY
-       ═══════════════════════════════════════════════════════════════ */
-    .gallery-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .gallery-card {
-      width: 90px;
-      height: 120px;
-      background: var(--glass-bg);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border: 1px solid var(--glass-border);
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: var(--glow-soft);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .gallery-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .gallery-card .placeholder-icon {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      color: var(--color-rose-gold);
-    }
-
-    .gallery-card:hover {
-      transform: translateY(-8px) scale(1.04);
-      box-shadow: 0 25px 50px rgba(180, 50, 70, 0.5);
-    }
-
-    @media (hover: none) {
-      .gallery-card:hover {
-        transform: none;
-        box-shadow: var(--glow-soft);
-      }
-      .gallery-card:active {
-        transform: scale(0.96);
-      }
+      z-index: 0;
     }
   </style>
 </head>
 <body>
-  <!-- ═══════════════════════════════════════════════════════════════
-       AURORA BACKGROUND
-       ═══════════════════════════════════════════════════════════════ -->
-  <div class="aurora-bg" aria-hidden="true"></div>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       MAIN STAGE
-       ═══════════════════════════════════════════════════════════════ -->
-  <div class="stage" id="mainStage" role="main" aria-live="polite" aria-label="Luxury Birthday Experience">
+<canvas id="particleCanvas" class="particle-canvas"></canvas>
 
-    <!-- PARTICLES LAYER -->
-    <div class="particles-layer" id="particlesLayer" aria-hidden="true"></div>
+<!-- scenes -->
+<div id="scene1" class="scene active">
+  <div style="position:relative; z-index:2;">
+    <h1 style="font-size: clamp(3rem, 12vw, 6rem); font-weight: 300; letter-spacing: 6px; opacity:0; animation: fadeIn 2.4s ease forwards; text-shadow: 0 0 60px #ff4d6d;">Happy Birthday ❤️</h1>
+  </div>
+</div>
 
-    <!-- SCENE 1: LOADING -->
-    <div class="scene active" id="scene1" aria-label="Loading screen">
-      <div class="glass-card">
-        <div style="font-size: 3rem; margin-bottom: 18px;" aria-hidden="true">💫</div>
-        <div class="glow-text" style="font-size: 1.9rem; font-weight: 400; font-family: var(--font-primary); color: #f5d0c5;">Loading Magic...</div>
-        <div style="margin-top: 28px; width: 130px; height: 4px; background: rgba(255,255,255,0.08); border-radius: 20px; overflow: hidden;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Loading progress">
-          <div id="loadingBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #c97a6a, #f0b8a0, #e09080); box-shadow: 0 0 22px #d44c5c; transition: width 1.6s cubic-bezier(0.25, 0, 0.25, 1);"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SCENE 2: PASSWORD -->
-    <div class="scene" id="scene2" aria-label="Password entry">
-      <div class="glass-card">
-        <div style="font-size: 2.6rem; margin-bottom: 18px;" aria-hidden="true">🔐</div>
-        <div style="color: #e6b9af; font-size: 1.35rem; margin-bottom: 22px; letter-spacing: 1px; font-family: var(--font-primary);">Secret Key</div>
-        <input type="text" id="passwordInput" placeholder="Enter the magic phrase" autocomplete="off" inputmode="text" enterkeyhint="done" aria-label="Secret Password" aria-describedby="pwHint">
-        <span id="pwHint" style="display:none;">Enter the secret phrase to continue</span>
-        <button class="btn-luxury" id="unlockBtn" style="margin-top: 22px;" aria-label="Unlock the experience">Unlock ✦</button>
-        <div id="wrongPopup" style="margin-top: 18px; color: #ffb0b0; opacity: 0; transition: opacity 0.35s ease; min-height: 24px; font-style: italic;" aria-live="assertive">🌸 That's not quite right, sweetheart 🌸</div>
-      </div>
-    </div>
-
-    <!-- SCENE 3: HAPPY BIRTHDAY -->
-    <div class="scene" id="scene3" aria-label="Happy Birthday message">
-      <div style="position: relative; z-index: 10;">
-        <div class="heartbeat glow-text" style="font-size: clamp(2.2rem, 7vw, 3.2rem); font-family: var(--font-primary); color: #fadcd9; font-weight: 600;">Happy Birthday ❤️</div>
-      </div>
-    </div>
-
-    <!-- SCENE 4: TYPEWRITER -->
-    <div class="scene" id="scene4" aria-label="Love message typing">
-      <div class="glass-card" style="max-width: 360px;">
-        <div id="typingText" style="font-size: clamp(1.15rem, 3.5vw, 1.45rem); font-family: var(--font-primary); color: #f7ddd4; min-height: 110px; line-height: 1.7; word-wrap: break-word;" aria-live="polite"></div>
-      </div>
-    </div>
-
-    <!-- SCENE 5: FLOATING ELEMENTS DISPLAY -->
-    <div class="scene" id="scene5" aria-label="Magical floating elements">
-      <div class="glass-card">
-        <div class="glow-text" style="font-size: clamp(1.5rem, 4.5vw, 1.9rem); font-family: var(--font-primary);">🌸 You Are Pure Magic 🌸</div>
-        <div style="color: #e3b2a5; margin-top: 18px; font-style: italic; font-size: 1.05rem;">the most beautiful soul in the universe</div>
-      </div>
-    </div>
-
-    <!-- SCENE 6: GIFT -->
-    <div class="scene" id="scene6" aria-label="Gift box">
-      <div style="font-size: clamp(3.2rem, 11vw, 5rem); cursor: pointer; transition: transform 0.35s ease; filter: drop-shadow(0 0 30px rgba(200,80,90,0.6));" id="giftBox" class="heartbeat" role="button" tabindex="0" aria-label="Open the gift">🎁</div>
-      <button class="btn-luxury" id="openGiftBtn" style="margin-top: 28px;" aria-label="Open gift button">✨ Open Gift ✨</button>
-    </div>
-
-    <!-- SCENE 7: ENVELOPE / LETTER -->
-    <div class="scene" id="scene7" aria-label="Love letter">
-      <div style="font-size: clamp(2.8rem, 9vw, 3.8rem);" aria-hidden="true">✉️</div>
-      <div id="letterContent" style="color: #f3cfc0; margin-top: 22px; font-size: clamp(0.95rem, 3vw, 1.15rem); font-family: var(--font-primary); line-height: 1.9; min-height: 90px;" aria-live="polite"></div>
-    </div>
-
-    <!-- SCENE 8: REASONS -->
-    <div class="scene" id="scene8" aria-label="Reasons I love you">
-      <div id="reasonDisplay" style="color: #fadcd9; font-size: clamp(1.2rem, 4vw, 1.5rem); font-family: var(--font-primary); font-weight: 300; transition: opacity 0.4s ease; min-height: 55px;" aria-live="polite"></div>
-    </div>
-
-    <!-- SCENE 9: MEMORY GALLERY -->
-    <div class="scene" id="scene9" aria-label="Memory gallery">
-      <div class="gallery-grid" id="galleryGrid" aria-label="Beautiful memories"></div>
-      <div style="color: #dba99a; margin-top: 18px; font-size: 1.05rem;">✨ our precious moments ✨</div>
-    </div>
-
-    <!-- SCENE 10: HEART EXPLOSION -->
-    <div class="scene" id="scene10" aria-label="Heart explosion">
-      <div style="font-size: clamp(3.2rem, 11vw, 5rem);" class="heartbeat" aria-hidden="true">💖</div>
-    </div>
-
-    <!-- SCENE 11: FINALE -->
-    <div class="scene" id="scene11" aria-label="Final love message">
-      <div class="glow-text heartbeat" style="font-size: clamp(1.6rem, 5.5vw, 2.6rem); font-family: var(--font-primary); font-weight: 600; color: #ffd9cc; padding: 0 8px; word-wrap: break-word;">
-        I Love You So Much ❤️
-      </div>
-    </div>
-
-    <!-- MUSIC CONTROLS -->
-    <div class="music-controls">
-      <button class="music-btn" id="musicToggle" aria-label="Toggle music" aria-pressed="false">▶ Play</button>
-      <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.05" value="0.5" aria-label="Volume control" title="Volume">
+<div id="scene2" class="scene">
+  <div class="glass" style="max-width:680px; padding:2.8rem 2rem;">
+    <div style="font-size:2.2rem; font-weight:300; line-height:1.5; letter-spacing:0.02em;">
+      <span id="typeLine1" style="display:inline-block;"></span><span class="typing-cursor" id="cursor1"></span>
+      <div style="height:1.2rem;"></div>
+      <span id="typeLine2" style="display:inline-block;"></span><span class="typing-cursor" id="cursor2" style="display:none;"></span>
     </div>
   </div>
+</div>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       AUDIO ELEMENT (Hidden)
-       ═══════════════════════════════════════════════════════════════ -->
-  <audio id="bgMusic" loop preload="none" style="display:none;" aria-hidden="true"></audio>
+<div id="scene3" class="scene">
+  <div style="display:flex; flex-direction:column; align-items:center;">
+    <div class="gift-box" id="giftBox">
+      <div class="glow-ring"></div>
+      <div class="gift-lid"></div>
+      <div style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%); background:gold; width:30px; height:12px; border-radius:20px; box-shadow:0 0 30px #ffbb33;"></div>
+      <div style="position:absolute; top:40px; left:50%; transform:translateX(-50%); width:12px; height:60px; background:gold; box-shadow:0 0 20px #ffbb33;"></div>
+    </div>
+    <button class="btn" id="openGiftBtn" style="margin-top:2.8rem;">🎁 Open Gift</button>
+  </div>
+</div>
 
-  <script>
-    (() => {
-      'use strict';
+<div id="scene4" class="scene">
+  <div class="letter-paper" id="letterPaper">
+    <p style="font-weight:600; font-size:1.5rem; color:#b02a3a;">My Dearest,</p>
+    <p id="letterLine1" class="letter-line">Every day with you is a beautiful page.</p>
+    <p id="letterLine2" class="letter-line">Today, the world celebrates your light.</p>
+    <p id="letterLine3" class="letter-line">You are the poetry my heart keeps writing.</p>
+    <p id="letterLine4" class="letter-line" style="font-style:italic; color:#a0364a;">— forever yours,</p>
+  </div>
+</div>
 
-      // ═══════════════════════════════════════════════════════════════
-      // CONFIGURATION — Edit everything here!
-      // ═══════════════════════════════════════════════════════════════
-      const CONFIG = {
-        password: 'I Love You',
-        recipientName: 'My Love',
-        senderName: 'Forever Yours',
-        birthdayMessage: [
-          "Today isn't just another birthday...",
-          "You are the most beautiful part of my life.",
-          "Every moment with you is a treasure beyond words."
-        ],
-        loveLetter: [
-          "My dearest love,",
-          "On this day the universe whispered your name",
-          "And the stars rearranged themselves just for you",
-          "Another year of your beautiful existence",
-          "Another chapter of your incredible story",
-          "I watch you and I am simply in awe",
-          "Of your grace your strength your gentle heart",
-          "You walk through life leaving trails of light",
-          "Every room you enter becomes warmer",
-          "Every soul you touch feels truly seen",
-          "I never knew love could feel like this",
-          "Like standing in golden sunlight at dawn",
-          "Like hearing the most beautiful symphony",
-          "You taught me what it means to truly care",
-          "To give without expecting anything back",
-          "To cherish every fleeting precious moment",
-          "Your laughter is my favorite melody",
-          "Your smile could heal the deepest wounds",
-          "Your presence is my safest sanctuary",
-          "I am endlessly grateful for who you are",
-          "For the way you love so fearlessly",
-          "For the dreams you hold so tenderly",
-          "Today we celebrate the gift of you",
-          "Your journey your growth your beautiful soul",
-          "May this year bring you boundless joy",
-          "May every sunrise fill you with hope",
-          "May you always know how deeply you are loved",
-          "You are not just a part of my life",
-          "You are the very best part of my heart",
-          "Happy birthday my love my everything"
-        ],
-        reasons: [
-          "Your smile lights up the darkest days ✨",
-          "The way you laugh is pure music 🎵",
-          "Your kindness touches every soul 🌸",
-          "Your strength inspires me daily 💪",
-          "Your eyes hold entire galaxies 🌌",
-          "Your voice calms every storm 🕊️",
-          "Your heart is made of gold 💛",
-          "Your embrace feels like home 🏡",
-          "Your courage moves mountains ⛰️",
-          "You make ordinary moments magical ✨",
-          "Your patience is legendary 🌿",
-          "Your creativity knows no bounds 🎨",
-          "You love deeply and truly ❤️",
-          "Your wisdom guides me 🦉",
-          "You are my safe harbor ⚓",
-          "Your presence is a gift 🎁",
-          "You make life beautiful 🌷",
-          "Your dreams inspire me 🌠",
-          "You are my favorite hello 👋",
-          "Your soul is radiant ☀️",
-          "You turn tears into hope 💧",
-          "Your spirit is unbreakable 🦋",
-          "You are my greatest adventure 🌍",
-          "You taught me what love means 💖",
-          "Your intuition is remarkable 🔮",
-          "You make growing older graceful 🌹",
-          "Your humor brightens everything 😄",
-          "You are my answered prayer 🙏",
-          "Your touch heals wounds 🤲",
-          "You are my forever valentine 💌",
-          "Your resilience is awe-inspiring 🏔️",
-          "You bring peace to chaos ☮️",
-          "You are the poetry I read 📖",
-          "Your generosity overflows 🌊",
-          "You are my constellation ⭐",
-          "You make the world softer 🌸",
-          "Your faith moves mountains ⛪",
-          "You are my serendipity 🍀",
-          "Your warmth melts winter ❄️→🌸",
-          "You are the melody I hum 🎶",
-          "Your bravery is heroic 🦸",
-          "You make silence comfortable 🤫",
-          "You are my chapter one 📚",
-          "Your loyalty is unwavering 🛡️",
-          "You are the color in my world 🎨",
-          "Your grace is effortless 🦢",
-          "You are my compass 🧭",
-          "Your passion ignites fires 🔥",
-          "You make my heart skip beats 💓",
-          "Your joy is contagious 😊",
-          "You are my lighthouse 🏮",
-          "Your tenderness is a balm 🧴",
-          "You make me want to be better 🌱",
-          "Your curiosity is charming 🧐",
-          "You are my answered dream 🌙",
-          "Your forgiveness teaches me 🕊️",
-          "You are my soul's mirror 🪞",
-          "Your playfulness is delightful 🐣",
-          "You make home anywhere 🏠",
-          "You are my answered wish 🌠",
-          "Your elegance is timeless 👑",
-          "You make life an art 🖼️",
-          "Your honesty is refreshing 💎",
-          "You are my forever sunrise 🌅",
-          "Your compassion heals 🤍",
-          "You are my favorite story 📖",
-          "Your sparkle is irreplaceable ✨",
-          "You make my world complete 🌍",
-          "Your gentleness is powerful 🕊️",
-          "You are my miracle 🌟",
-          "Your authenticity is beautiful 🦋",
-          "You are my best decision 💍",
-          "Your radiance outshines stars 🌟",
-          "You make every day special 🎉",
-          "Your empathy is profound 🌊",
-          "You are my treasure chest 💎",
-          "Your existence is a blessing 🙌",
-          "You are my anchor ⚓",
-          "Your whispers are sonnets 📝",
-          "You make loving effortless 💕",
-          "You are my answered prayer 🙏",
-          "Your magic is real 🪄",
-          "You are my infinity ♾️",
-          "Your warmth is my sunshine ☀️",
-          "You are my masterpiece 🎨",
-          "Your heartbeat is my rhythm 🥁",
-          "You are my fairy tale 🏰",
-          "Your soul is a garden 🌺",
-          "You are my forever dance 💃",
-          "Your light guides me 🔦",
-          "You are my answered why ❓",
-          "Your touch is electric ⚡",
-          "You are my calm 🌊",
-          "Your words are honey 🍯",
-          "You are my safe place 🛡️",
-          "Your laughter is medicine 💊",
-          "You are my favorite thought 💭",
-          "You, just you, are everything 🌹"
-        ],
-        imageURLs: [
-          'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="100" height="130" viewBox="0 0 100 130"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#6b1a2a"/><stop offset="100%" style="stop-color:#2d0a0f"/></linearGradient></defs><rect width="100" height="130" rx="20" fill="url(#g)"/><text x="50" y="70" font-size="45" text-anchor="middle" fill="#f0c0b0" font-family="serif">🌙</text></svg>'),
-          'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="100" height="130" viewBox="0 0 100 130"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4a1018"/><stop offset="100%" style="stop-color:#1a0505"/></linearGradient></defs><rect width="100" height="130" rx="20" fill="url(#g)"/><text x="50" y="70" font-size="45" text-anchor="middle" fill="#f0c0b0" font-family="serif">✨</text></svg>'),
-          'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="100" height="130" viewBox="0 0 100 130"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#8b1a2b"/><stop offset="100%" style="stop-color:#3d0a0f"/></linearGradient></defs><rect width="100" height="130" rx="20" fill="url(#g)"/><text x="50" y="70" font-size="45" text-anchor="middle" fill="#f0c0b0" font-family="serif">🌹</text></svg>'),
-          'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="100" height="130" viewBox="0 0 100 130"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c99a6b"/><stop offset="100%" style="stop-color:#6b1a2a"/></linearGradient></defs><rect width="100" height="130" rx="20" fill="url(#g)"/><text x="50" y="70" font-size="45" text-anchor="middle" fill="#2d0a0f" font-family="serif">💫</text></svg>')
-        ],
-        musicFile: '',
-        colors: {
-          bg: '#0a0000',
-          primary: '#c44b59',
-          secondary: '#b8736b',
-          accent: '#f5d0c5'
+<div id="scene5" class="scene">
+  <div style="display:flex; flex-direction:column; align-items:center;">
+    <div class="big-heart">❤️</div>
+    <div style="margin-top:1.5rem; font-size:1.8rem; font-weight:300; letter-spacing:2px; background:rgba(0,0,0,0.4); padding:0.8rem 2rem; border-radius:60px; backdrop-filter:blur(8px);">
+      <span id="wishText" style="display:inline-block;">✨</span>
+    </div>
+  </div>
+</div>
+
+<div id="scene6" class="scene">
+  <div class="password-box">
+    <div class="lock-icon">🔐</div>
+    <h3 style="font-weight:300; margin:0.8rem 0 1.2rem; letter-spacing:1px;">enter the secret</h3>
+    <input type="text" id="passwordInput" placeholder="type here..." autocomplete="off">
+    <button class="btn" id="unlockBtn" style="margin-top:1.8rem;">Unlock ❤️</button>
+    <p id="lockMsg" style="margin-top:1.2rem; min-height:2rem; font-weight:300; color:#ffb0b0;"></p>
+  </div>
+</div>
+
+<div id="scene7" class="scene">
+  <div style="position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:100%;">
+    <div style="position:absolute; inset:0; background: radial-gradient(circle at 30% 40%, #ff446622, transparent 60%);"></div>
+    <div class="final-text" style="position:relative; z-index:4;">I love you sooo sooo sooooo much ❤️</div>
+    <div style="margin-top:2rem; font-size:1.6rem; opacity:0.8; letter-spacing:6px; filter:drop-shadow(0 0 40px #ff4466);">✨ always & forever ✨</div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    // ----- particle system (subtle) -----
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    function resize() { width=canvas.width=window.innerWidth; height=canvas.height=window.innerHeight; }
+    window.addEventListener('resize', resize);
+    resize();
+    const particles = [];
+    for(let i=0;i<60;i++){
+      particles.push({
+        x: Math.random()*width, y: Math.random()*height,
+        r: Math.random()*3+1.2, dx: (Math.random()-0.5)*0.4, dy: (Math.random()-0.5)*0.4,
+        o: Math.random()*0.4+0.1
+      });
+    }
+    function drawParticles() {
+      ctx.clearRect(0,0,width,height);
+      particles.forEach(p=>{
+        p.x+=p.dx; p.y+=p.dy;
+        if(p.x<0||p.x>width) p.dx*=-1;
+        if(p.y<0||p.y>height) p.dy*=-1;
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle = `rgba(255, 200, 210, ${p.o})`;
+        ctx.shadowColor = '#ff4466';
+        ctx.shadowBlur = 20;
+        ctx.fill();
+      });
+      requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+
+    // ----- scene management -----
+    const scenes = document.querySelectorAll('.scene');
+    let currentScene = 0;
+    let isTransitioning = false;
+    let sceneTimers = [];
+
+    function goToScene(index) {
+      if (isTransitioning || index === currentScene) return;
+      isTransitioning = true;
+      const prev = scenes[currentScene];
+      const next = scenes[index];
+      prev.classList.remove('active');
+      prev.classList.add('exit');
+      setTimeout(()=>{ prev.classList.remove('exit'); }, 1300);
+      next.classList.remove('exit');
+      next.classList.add('active');
+      currentScene = index;
+      setTimeout(()=>{ isTransitioning = false; }, 1200);
+      // trigger scene logic
+      if (index===4) showLetterLines();
+      if (index===5) animateWishes();
+      if (index===6) { /* password init */ }
+      if (index===7) { triggerFinalSparkles(); }
+    }
+
+    // ----- scene 1 auto to 2 -----
+    setTimeout(()=>{ goToScene(1); }, 4000);
+
+    // ----- scene 2 typing -----
+    const line1 = "Today isn’t just another day…";
+    const line2 = "You were born to make someone’s world beautiful.";
+    let typeIndex1=0, typeIndex2=0;
+    let typeDone1=false, typeDone2=false;
+    function typeScene2() {
+      const el1 = document.getElementById('typeLine1');
+      const el2 = document.getElementById('typeLine2');
+      const cursor1 = document.getElementById('cursor1');
+      const cursor2 = document.getElementById('cursor2');
+      if(!typeDone1) {
+        if(typeIndex1 < line1.length) {
+          el1.textContent += line1[typeIndex1++];
+          setTimeout(typeScene2, 60);
+        } else {
+          typeDone1=true;
+          cursor1.style.display='none';
+          cursor2.style.display='inline-block';
+          setTimeout(typeScene2, 400);
         }
-      };
-
-      // ═══════════════════════════════════════════════════════════════
-      // DOM REFERENCES
-      // ═══════════════════════════════════════════════════════════════
-      const $ = (sel) => document.querySelector(sel);
-      const $$ = (sel) => document.querySelectorAll(sel);
-
-      const stage = document.getElementById('mainStage');
-      const particlesLayer = document.getElementById('particlesLayer');
-      const loadingBar = document.getElementById('loadingBar');
-      const passwordInput = document.getElementById('passwordInput');
-      const unlockBtn = document.getElementById('unlockBtn');
-      const wrongPopup = document.getElementById('wrongPopup');
-      const typingText = document.getElementById('typingText');
-      const giftBox = document.getElementById('giftBox');
-      const openGiftBtn = document.getElementById('openGiftBtn');
-      const letterContent = document.getElementById('letterContent');
-      const reasonDisplay = document.getElementById('reasonDisplay');
-      const galleryGrid = document.getElementById('galleryGrid');
-      const musicToggle = document.getElementById('musicToggle');
-      const volumeSlider = document.getElementById('volumeSlider');
-      const bgMusic = document.getElementById('bgMusic');
-
-      const sceneIds = ['scene1','scene2','scene3','scene4','scene5','scene6','scene7','scene8','scene9','scene10','scene11'];
-      const scenes = {};
-      sceneIds.forEach(id => { scenes[id] = document.getElementById(id); });
-
-      // ═══════════════════════════════════════════════════════════════
-      // STATE
-      // ═══════════════════════════════════════════════════════════════
-      let currentScene = 'scene1';
-      let musicPlaying = false;
-      let giftOpened = false;
-      let passwordUnlocked = false;
-      const activeTimers = new Set();
-      const activeIntervals = new Set();
-      let particleIntervalId = null;
-      let animFrameId = null;
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      // ═══════════════════════════════════════════════════════════════
-      // UTILITY FUNCTIONS
-      // ═══════════════════════════════════════════════════════════════
-      const safeTimeout = (fn, delay) => {
-        const id = setTimeout(() => { activeTimers.delete(id); fn(); }, delay);
-        activeTimers.add(id);
-        return id;
-      };
-
-      const safeInterval = (fn, delay) => {
-        const id = setInterval(fn, delay);
-        activeIntervals.add(id);
-        return id;
-      };
-
-      const clearAllTimers = () => {
-        activeTimers.forEach(id => clearTimeout(id));
-        activeTimers.clear();
-        activeIntervals.forEach(id => clearInterval(id));
-        activeIntervals.clear();
-      };
-
-      const cancelAnimFrame = () => {
-        if (animFrameId) { cancelAnimationFrame(animFrameId); animFrameId = null; }
-      };
-
-      // ═══════════════════════════════════════════════════════════════
-      // SCENE MANAGEMENT
-      // ═══════════════════════════════════════════════════════════════
-      const switchScene = (sceneId) => {
-        if (!scenes[sceneId] || currentScene === sceneId) return;
-        Object.values(scenes).forEach(s => s?.classList.remove('active'));
-        scenes[sceneId].classList.add('active');
-        currentScene = sceneId;
-        if (sceneId === 'scene11') stopParticleInterval();
-        onSceneEnter(sceneId);
-      };
-
-      const onSceneEnter = (id) => {
-        const actions = {
-          scene3: () => {
-            if (!musicPlaying) startMusic();
-            safeTimeout(() => { if (currentScene === 'scene3') switchScene('scene4'); }, 3000);
-          },
-          scene4: () => startTyping(),
-          scene5: () => safeTimeout(() => { if (currentScene === 'scene5') switchScene('scene6'); }, 3500),
-          scene7: () => startLetter(),
-          scene8: () => startReasons(),
-          scene9: () => { buildGallery(); safeTimeout(() => { if (currentScene === 'scene9') switchScene('scene10'); }, 3000); },
-          scene10: () => safeTimeout(() => { if (currentScene === 'scene10') switchScene('scene11'); }, 2500),
-        };
-        if (actions[id]) actions[id]();
-      };
-
-      // ═══════════════════════════════════════════════════════════════
-      // TYPING ANIMATION (Scene 4)
-      // ═══════════════════════════════════════════════════════════════
-      const startTyping = () => {
-        if (!typingText) return;
-        while (typingText.firstChild) typingText.removeChild(typingText.firstChild);
-        const messages = CONFIG.birthdayMessage;
-        let msgIdx = 0, charIdx = 0, lastTime = 0;
-        const delay = prefersReducedMotion ? 8 : 50;
-
-        const type = (ts) => {
-          if (currentScene !== 'scene4') { cancelAnimFrame(); return; }
-          if (!lastTime || ts - lastTime >= delay) {
-            lastTime = ts;
-            if (msgIdx >= messages.length) {
-              cancelAnimFrame();
-              safeTimeout(() => { if (currentScene === 'scene4') switchScene('scene5'); }, 1300);
-              return;
-            }
-            if (charIdx < messages[msgIdx].length) {
-              typingText.appendChild(document.createTextNode(messages[msgIdx][charIdx]));
-              charIdx++;
-            } else {
-              msgIdx++; charIdx = 0;
-              typingText.appendChild(document.createElement('br'));
-              typingText.appendChild(document.createElement('br'));
-            }
-          }
-          if (currentScene === 'scene4') animFrameId = requestAnimationFrame(type);
-        };
-        animFrameId = requestAnimationFrame(type);
-      };
-
-      // ═══════════════════════════════════════════════════════════════
-      // LETTER ANIMATION (Scene 7)
-      // ═══════════════════════════════════════════════════════════════
-      let letterTimer = null;
-      const startLetter = () => {
-        if (!letterContent) return;
-        if (letterTimer) { clearTimeout(letterTimer); letterTimer = null; }
-        while (letterContent.firstChild) letterContent.removeChild(letterContent.firstChild);
-        const lines = CONFIG.loveLetter;
-        let i = 0;
-        const add = () => {
-          if (currentScene !== 'scene7') { letterTimer = null; return; }
-          if (i < lines.length) {
-            letterContent.appendChild(document.createTextNode(lines[i]));
-            letterContent.appendChild(document.createElement('br'));
-            i++;
-            letterTimer = safeTimeout(add, 700);
-          } else {
-            letterTimer = null;
-            safeTimeout(() => { if (currentScene === 'scene7') switchScene('scene8'); }, 1800);
-          }
-        };
-        letterTimer = safeTimeout(add, 200);
-      };
-
-      // ═══════════════════════════════════════════════════════════════
-      // REASONS (Scene 8)
-      // ═══════════════════════════════════════════════════════════════
-      let reasonTimer = null;
-      const startReasons = () => {
-        if (!reasonDisplay) return;
-        if (reasonTimer) { clearTimeout(reasonTimer); reasonTimer = null; }
-        const reasons = CONFIG.reasons;
-        let idx = 0;
-        reasonDisplay.style.opacity = '1';
-        reasonDisplay.textContent = '';
-        const show = () => {
-          if (currentScene !== 'scene8') { reasonTimer = null; return; }
-          if (idx < reasons.length) {
-            reasonDisplay.style.opacity = '0';
-            safeTimeout(() => {
-              if (currentScene === 'scene8' && reasonDisplay) {
-                reasonDisplay.textContent = (idx + 1) + '. ' + reasons[idx];
-                reasonDisplay.style.opacity = '1';
-                idx++;
-                reasonTimer = safeTimeout(show, 1000);
-              }
-            }, 180);
-          } else {
-            reasonTimer = null;
-            safeTimeout(() => { if (currentScene === 'scene8') switchScene('scene9'); }, 1000);
-          }
-        };
-        reasonTimer = safeTimeout(show, 150);
-      };
-
-      // ═══════════════════════════════════════════════════════════════
-      // GALLERY (Scene 9)
-      // ═══════════════════════════════════════════════════════════════
-      const buildGallery = () => {
-        if (!galleryGrid) return;
-        galleryGrid.innerHTML = '';
-        CONFIG.imageURLs.forEach(url => {
-          const card = document.createElement('div');
-          card.className = 'gallery-card';
-          const img = document.createElement('img');
-          img.src = url;
-          img.alt = 'Memory';
-          img.loading = 'lazy';
-          img.onerror = () => {
-            img.style.display = 'none';
-            const placeholder = document.createElement('div');
-            placeholder.className = 'placeholder-icon';
-            placeholder.textContent = '🌸';
-            card.appendChild(placeholder);
-          };
-          card.appendChild(img);
-          galleryGrid.appendChild(card);
-        });
-      };
-
-      // ═══════════════════════════════════════════════════════════════
-      // GIFT & CONFETTI (Scene 6)
-      // ═══════════════════════════════════════════════════════════════
-      const launchConfetti = () => {
-        const emojis = ['✨','💫','🌟','💖','🌹','💝','🎀','🦋','🌸','💎'];
-        for (let i = 0; i < 45; i++) {
-          safeTimeout(() => {
-            const p = document.createElement('div');
-            p.className = 'particle';
-            p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-            p.style.cssText = `left:${Math.random()*90+5}%;top:-30px;font-size:${Math.random()*20+12}px;animation:confettiFall ${Math.random()*2+2}s linear forwards;z-index:30;`;
-            p.setAttribute('aria-hidden','true');
-            particlesLayer.appendChild(p);
-            safeTimeout(() => p.remove(), 3000);
-          }, i * 18);
+      } else if(!typeDone2) {
+        if(typeIndex2 < line2.length) {
+          el2.textContent += line2[typeIndex2++];
+          setTimeout(typeScene2, 50);
+        } else {
+          typeDone2=true;
+          cursor2.style.display='none';
+          setTimeout(()=>{ goToScene(2); }, 1200);
         }
-      };
+      }
+    }
+    // start typing when scene2 active (listener)
+    const scene2Observer = new MutationObserver(()=>{
+      if(scenes[1].classList.contains('active') && !typeDone1) {
+        typeScene2();
+        scene2Observer.disconnect();
+      }
+    });
+    scene2Observer.observe(scenes[1], { attributes: true, attributeFilter: ['class'] });
 
-      const openGift = () => {
-        if (giftOpened || currentScene !== 'scene6') return;
-        giftOpened = true;
-        if (giftBox) { giftBox.style.transform = 'rotate(15deg) scale(1.3)'; safeTimeout(() => { if (giftBox) giftBox.style.transform = ''; }, 250); }
-        launchConfetti();
-        safeTimeout(() => { if (currentScene === 'scene6') switchScene('scene7'); }, 1200);
-      };
+    // scene2 -> scene3 after typing (called inside)
+    // but we go to scene3 when typing done: setTimeout(()=>{ goToScene(2); }, 1200); maps to scene index 2 (gift)
 
-      // ═══════════════════════════════════════════════════════════════
-      // PARTICLES
-      // ═══════════════════════════════════════════════════════════════
-      const spawnParticle = () => {
-        if (!particlesLayer) return;
-        const icons = ['❤️','✨','🌹','🦋','💫','🥀','💖','🌸','⭐','🕊️'];
-        const p = document.createElement('div');
-        p.className = 'particle';
-        p.textContent = icons[Math.floor(Math.random() * icons.length)];
-        p.style.cssText = `left:${Math.random()*95+2.5}%;bottom:-25px;font-size:${Math.random()*16+9}px;animation:floatParticle ${Math.random()*3+3}s ease-in forwards;opacity:0.8;`;
-        p.setAttribute('aria-hidden','true');
-        particlesLayer.appendChild(p);
-        safeTimeout(() => p.remove(), 5000);
-      };
-
-      const startParticleInterval = () => {
-        if (particleIntervalId) return;
-        particleIntervalId = safeInterval(spawnParticle, 850);
-      };
-      const stopParticleInterval = () => {
-        if (particleIntervalId) { clearInterval(particleIntervalId); activeIntervals.delete(particleIntervalId); particleIntervalId = null; }
-      };
-
-      // ═══════════════════════════════════════════════════════════════
-      // MUSIC
-      // ═══════════════════════════════════════════════════════════════
-      const startMusic = () => {
-        if (musicPlaying) return;
-        if (CONFIG.musicFile && bgMusic) {
-          bgMusic.src = CONFIG.musicFile;
-          bgMusic.volume = parseFloat(volumeSlider?.value || 0.5);
-          bgMusic.play().then(() => {
-            musicPlaying = true;
-            updateMusicUI();
-          }).catch(() => {
-            // Autoplay blocked — user must interact
-            musicPlaying = false;
-            updateMusicUI();
+    // ----- scene3 gift -----
+    const giftBox = document.getElementById('giftBox');
+    const openBtn = document.getElementById('openGiftBtn');
+    let giftOpened = false;
+    openBtn.addEventListener('click', ()=>{
+      if(giftOpened) return;
+      giftOpened = true;
+      giftBox.classList.add('shake');
+      setTimeout(()=>{
+        giftBox.classList.remove('shake');
+        giftBox.classList.add('open');
+        // confetti burst
+        for(let i=0;i<80;i++) {
+          const c = document.createElement('div');
+          c.className = 'confetti-piece';
+          c.style.left = (40+Math.random()*20)+'%';
+          c.style.top = (30+Math.random()*30)+'%';
+          c.style.background = `hsl(${Math.random()*360}, 80%, 70%)`;
+          c.style.transform = `rotate(${Math.random()*360}deg)`;
+          c.style.position = 'fixed';
+          c.style.zIndex = '99';
+          c.style.pointerEvents = 'none';
+          c.style.transition = 'all 2.5s cubic-bezier(0.23,1,0.32,1)';
+          document.body.appendChild(c);
+          requestAnimationFrame(()=>{
+            c.style.transform = `translate(${(Math.random()-0.5)*400}px, ${(Math.random()-0.5)*400}px) rotate(${Math.random()*720}deg)`;
+            c.style.opacity = '0';
           });
-        } else {
-          // No music file — still mark as "playing" for UI
-          musicPlaying = true;
-          updateMusicUI();
+          setTimeout(()=> c.remove(), 3000);
         }
-      };
+        setTimeout(()=>{ goToScene(3); }, 1600);
+      }, 800);
+    });
 
-      const stopMusic = () => {
-        if (bgMusic) { bgMusic.pause(); bgMusic.currentTime = 0; }
-        musicPlaying = false;
-        updateMusicUI();
-      };
-
-      const updateMusicUI = () => {
-        if (!musicToggle) return;
-        musicToggle.textContent = musicPlaying ? '⏸ Pause' : '▶ Play';
-        musicToggle.setAttribute('aria-pressed', String(musicPlaying));
-      };
-
-      // ═══════════════════════════════════════════════════════════════
-      // PASSWORD HANDLING
-      // ═══════════════════════════════════════════════════════════════
-      const handleUnlock = (e) => {
-        if (e) e.preventDefault();
-        if (passwordUnlocked) return;
-        const raw = passwordInput.value;
-        const normalized = raw.trim().replace(/\s+/g, ' ').toLowerCase();
-        const expected = CONFIG.password.trim().replace(/\s+/g, ' ').toLowerCase();
-        if (normalized === expected) {
-          passwordUnlocked = true;
-          wrongPopup.style.opacity = '0';
-          passwordInput.disabled = true;
-          unlockBtn.disabled = true;
-          switchScene('scene3');
-        } else {
-          wrongPopup.style.opacity = '1';
-          safeTimeout(() => { wrongPopup.style.opacity = '0'; }, 1800);
-        }
-      };
-
-      // ═══════════════════════════════════════════════════════════════
-      // EVENT LISTENERS
-      // ═══════════════════════════════════════════════════════════════
-      musicToggle?.addEventListener('click', (e) => {
-        e.preventDefault();
-        musicPlaying ? stopMusic() : startMusic();
+    // scene4 letter lines
+    function showLetterLines() {
+      const lines = document.querySelectorAll('.letter-line');
+      lines.forEach((el,i)=>{
+        setTimeout(()=>{ el.classList.add('show'); }, i*400+300);
       });
+      setTimeout(()=>{ goToScene(4); }, 3000);
+    }
 
-      volumeSlider?.addEventListener('input', () => {
-        if (bgMusic) bgMusic.volume = parseFloat(volumeSlider.value);
-      });
+    // scene5 wishes
+    const wishes = ["You are magic ✨", "Beautiful soul ❤️", "Forever loved", "My sunshine", "Endless joy", "You complete me"];
+    let wishIndex=0;
+    function animateWishes() {
+      const el = document.getElementById('wishText');
+      if(wishIndex < wishes.length) {
+        el.style.opacity='0';
+        el.style.transform='scale(0.7)';
+        setTimeout(()=>{
+          el.textContent = wishes[wishIndex++];
+          el.style.transition='all 0.6s cubic-bezier(0.34,1.56,0.64,1)';
+          el.style.opacity='1';
+          el.style.transform='scale(1)';
+          setTimeout(animateWishes, 1300);
+        }, 200);
+      } else {
+        setTimeout(()=>{ goToScene(5); }, 1000);
+      }
+    }
 
-      unlockBtn?.addEventListener('click', handleUnlock);
-      passwordInput?.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleUnlock(e); });
+    // scene6 password
+    document.getElementById('unlockBtn').addEventListener('click', ()=>{
+      const input = document.getElementById('passwordInput');
+      const msg = document.getElementById('lockMsg');
+      if(input.value.trim().toLowerCase() === 'i love you') {
+        msg.style.color = '#9bff9b';
+        msg.textContent = '❤️ perfect ❤️';
+        setTimeout(()=>{ goToScene(6); }, 1000);
+      } else {
+        msg.style.color = '#ff8888';
+        msg.textContent = '💔 try again, love 💔';
+        setTimeout(()=>{ msg.textContent=''; }, 1800);
+      }
+    });
+    document.getElementById('passwordInput').addEventListener('keydown', (e)=>{ if(e.key==='Enter') document.getElementById('unlockBtn').click(); });
 
-      openGiftBtn?.addEventListener('click', (e) => { e.preventDefault(); openGift(); });
-      giftBox?.addEventListener('click', () => openGift());
-      giftBox?.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openGift(); } });
+    // scene7 final sparkles
+    function triggerFinalSparkles() {
+      for(let i=0;i<50;i++) {
+        const s = document.createElement('div');
+        s.className = 'sparkle';
+        s.style.left = (Math.random()*100)+'%';
+        s.style.top = (Math.random()*100)+'%';
+        s.style.width = (Math.random()*8+2)+'px';
+        s.style.height = s.style.width;
+        s.style.background = `radial-gradient(circle, #fff, #ff7799)`;
+        s.style.position = 'fixed';
+        s.style.zIndex = '50';
+        s.style.pointerEvents = 'none';
+        s.style.animation = `sparkleAnim ${Math.random()*2+2}s ease-in-out infinite`;
+        document.body.appendChild(s);
+        setTimeout(()=> s.remove(), 4000);
+      }
+    }
+    // inject sparkle keyframe
+    const styleSheet = document.createElement("style");
+    styleSheet.textContent = `@keyframes sparkleAnim { 0%{ opacity:0; transform:scale(0) rotate(0deg); } 50%{ opacity:1; transform:scale(1.8) rotate(180deg); } 100%{ opacity:0; transform:scale(0) rotate(360deg); } }`;
+    document.head.appendChild(styleSheet);
 
-      // ═══════════════════════════════════════════════════════════════
-      // INIT
-      // ═══════════════════════════════════════════════════════════════
-      const init = () => {
-        Object.values(scenes).forEach(s => s?.classList.remove('active'));
-        scenes.scene1?.classList.add('active');
-        currentScene = 'scene1';
-        startParticleInterval();
-        if (loadingBar) {
-          loadingBar.style.width = '0%';
-          requestAnimationFrame(() => requestAnimationFrame(() => { loadingBar.style.width = '100%'; }));
-        }
-        safeTimeout(() => { if (currentScene === 'scene1') switchScene('scene2'); }, 2200);
-        updateMusicUI();
-      };
+    // auto advance from scene4->5, scene5->6, scene6->7 are called inside
+    // but we want scene4->5 after letter done: goToScene(4) called in showLetterLines
+    // scene5->6 after wishes done: goToScene(5)
+    // scene6->7 after password correct: goToScene(6)
+    // scene7 is final.
 
-      // ═══════════════════════════════════════════════════════════════
-      // CLEANUP
-      // ═══════════════════════════════════════════════════════════════
-      const cleanup = () => {
-        clearAllTimers();
-        stopParticleInterval();
-        cancelAnimFrame();
-        if (letterTimer) clearTimeout(letterTimer);
-        if (reasonTimer) clearTimeout(reasonTimer);
-        if (bgMusic) { bgMusic.pause(); bgMusic.src = ''; }
-        if (particlesLayer) particlesLayer.innerHTML = '';
-      };
-      window.addEventListener('beforeunload', cleanup);
-      document.addEventListener('visibilitychange', () => {
-        if (!document.hidden && musicPlaying && bgMusic && bgMusic.paused) bgMusic.play().catch(() => {});
-      });
+    // scene1 -> scene2 is timer; scene2 -> scene3 is after typing; scene3 -> scene4 after gift open; scene4->5 after letter; scene5->6 after wishes; scene6->7 after password.
+    // we also need to trigger scene2 typing if already active (in case)
+    window.addEventListener('load', ()=>{
+      // ensure scene1 active
+      scenes.forEach((s,i)=>{ if(i===0) s.classList.add('active'); else s.classList.remove('active'); });
+    });
 
-      init();
-    })();
-  </script>
+    // extra: floating hearts in scene2,3,5,6,7 via css pseudo? we add some floating divs with js
+    function createFloatingHearts() {
+      setInterval(()=>{
+        const scene = scenes[currentScene];
+        if(!scene) return;
+        const heart = document.createElement('div');
+        heart.textContent = '❤️';
+        heart.style.position = 'fixed';
+        heart.style.left = (Math.random()*90+5)+'%';
+        heart.style.bottom = '-10%';
+        heart.style.fontSize = (Math.random()*30+20)+'px';
+        heart.style.opacity = (Math.random()*0.3+0.1);
+        heart.style.pointerEvents = 'none';
+        heart.style.zIndex = '2';
+        heart.style.transition = 'all 6s linear';
+        document.body.appendChild(heart);
+        requestAnimationFrame(()=>{
+          heart.style.transform = `translateY(-${window.innerHeight+100}px) rotate(${Math.random()*40-20}deg)`;
+          heart.style.opacity = '0';
+        });
+        setTimeout(()=> heart.remove(), 7000);
+      }, 900);
+    }
+    createFloatingHearts();
+
+    // also subtle glow pulse on scene2 etc
+  })();
+</script>
 </body>
 </html>
